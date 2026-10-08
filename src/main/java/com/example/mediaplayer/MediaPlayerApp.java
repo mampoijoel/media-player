@@ -30,14 +30,13 @@ public class MediaPlayerApp {
 
     public void start(Stage stage) {
 
-        
+        // --- Core logic ---
         mediaController = new MediaController();
         playlistManager = new PlaylistManager();
 
-       
-        Label appLogo = new Label("\uD83C\uDFB5");   
-        appLogo.getStyleClass().add("app-logo");
-
+        // ============================================================
+        // HEADER BAR — brand at top of window (no emoji logo)
+        // ============================================================
         Label appTitle = new Label("JOEL MEDIA PLAYER");
         appTitle.getStyleClass().add("app-title");
 
@@ -48,12 +47,12 @@ public class MediaPlayerApp {
         nowPlayingLabel.getStyleClass().add("now-playing");
         nowPlayingLabel.setMaxWidth(400);
 
-        HBox headerBar = new HBox(12, appLogo, appTitle, headerSpacer, nowPlayingLabel);
+        HBox headerBar = new HBox(12, appTitle, headerSpacer, nowPlayingLabel);
         headerBar.setAlignment(Pos.CENTER_LEFT);
         headerBar.getStyleClass().add("header-bar");
         headerBar.setPadding(new Insets(12, 18, 12, 18));
 
-       
+        // --- Video display ---
         MediaView mediaView = new MediaView();
         mediaView.setFitWidth(680);
         mediaView.setFitHeight(380);
@@ -78,7 +77,7 @@ public class MediaPlayerApp {
         videoPane.setFocusTraversable(true);
         videoPane.setPrefSize(680, 380);
 
-        
+        // --- Playlist ---
         playlistView = new ListView<>(playlistManager.getPlaylist());
         playlistView.setPrefWidth(280);
         playlistView.setPrefHeight(220);
@@ -96,7 +95,7 @@ public class MediaPlayerApp {
         rightPanel.setPadding(new Insets(0, 0, 0, 12));
         rightPanel.setPrefWidth(300);
 
-       
+        // --- Buttons ---
         Button playBtn   = iconButton("/icons/play.png",     "Play",   true);
         Button pauseBtn  = iconButton("/icons/pause.png",    "Pause",  false);
         Button stopBtn   = iconButton("/icons/stop.png",     "Stop",   false);
@@ -113,7 +112,7 @@ public class MediaPlayerApp {
         addBtn.getStyleClass().addAll("icon-button", "success");
         removeBtn.getStyleClass().addAll("icon-button", "danger");
 
-       
+        // --- Volume ---
         volumeSlider = new Slider(0, 1, 0.7);
         volumeSlider.setPrefWidth(160);
         volumeSlider.setFocusTraversable(false);
@@ -121,7 +120,7 @@ public class MediaPlayerApp {
         Label volumeIcon = new Label("\uD83D\uDD0A");
         volumeIcon.getStyleClass().add("volume-icon");
 
-        
+        // --- Time slider + label ---
         timeSlider = new Slider(0, 100, 0);
         timeSlider.setFocusTraversable(false);
 
@@ -134,7 +133,7 @@ public class MediaPlayerApp {
         HBox.setHgrow(timeSlider, Priority.ALWAYS);
         timeSlider.setMaxWidth(Double.MAX_VALUE);
 
-      
+        // --- Control row ---
         HBox controlRow = new HBox(10,
                 playBtn, pauseBtn, stopBtn,
                 makeSeparator(),
@@ -152,6 +151,7 @@ public class MediaPlayerApp {
         bottomBox.getStyleClass().add("controls-panel");
         bottomBox.setPadding(new Insets(16));
 
+        // --- Root layout ---
         BorderPane root = new BorderPane();
         root.setTop(headerBar);
         root.setCenter(videoPane);
@@ -164,12 +164,12 @@ public class MediaPlayerApp {
 
         Scene scene = new Scene(root, 1180, 760);
 
-        
+        // --- Connect controllers ---
         mediaController.attach(mediaView, volumeSlider, timeSlider, timeLabel);
         mediaController.setMusicPlaceholder(musicPlaceholder);
         playlistManager.attach(stage, playlistView, mediaController);
 
-        // Update "Now Playing" when the playlist changes selection
+        // Update "Now Playing" when playlist selection changes
         playlistView.getSelectionModel().selectedItemProperty()
                 .addListener((obs, oldV, newV) -> {
                     if (newV != null) {
@@ -179,7 +179,7 @@ public class MediaPlayerApp {
                     }
                 });
 
-       
+        // --- Button actions ---
         playBtn.setOnAction(e -> { mediaController.play(); videoPane.requestFocus(); });
         pauseBtn.setOnAction(e -> { mediaController.pause(); videoPane.requestFocus(); });
         stopBtn.setOnAction(e -> { mediaController.stop(); videoPane.requestFocus(); });
@@ -188,11 +188,11 @@ public class MediaPlayerApp {
         prevBtn.setOnAction(e -> playlistManager.playPrevious());
         nextBtn.setOnAction(e -> playlistManager.playNext());
 
-     
+        // --- Keyboard ---
         KeyboardController keyboard = new KeyboardController(mediaController, playlistManager);
         keyboard.attach(scene);
 
-      
+        // --- Stylesheet ---
         var cssUrl = getClass().getResource("/css/style.css");
         if (cssUrl != null) {
             scene.getStylesheets().add(cssUrl.toExternalForm());
