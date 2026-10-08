@@ -1,0 +1,257 @@
+
+
+
+.root {
+    -fx-font-family: "Segoe UI", Arial, sans-serif;
+    -fx-font-size: 13px;
+    -fx-background-color: linear-gradient(to bottom right, #0d1117 0%, #161b22 100%);
+}
+
+
+.header-bar {
+    -fx-background-color: linear-gradient(to right, #161b22 0%, #1a2028 100%);
+    -fx-background-radius: 10;
+    -fx-border-color: #30363d;
+    -fx-border-radius: 10;
+    -fx-border-width: 1;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 8, 0, 0, 2);
+}
+
+.app-logo {
+    -fx-font-size: 22px;
+}
+
+.app-title {
+    -fx-text-fill: #e6edf3;
+    -fx-font-size: 15px;
+    -fx-font-weight: 800;
+    -fx-letter-spacing: 1.5px;
+}
+
+.now-playing {
+    -fx-text-fill: #58a6ff;
+    -fx-font-size: 12px;
+    -fx-font-style: italic;
+}
+
+
+.video-pane {
+    -fx-background-color: #000000;
+    -fx-background-radius: 12;
+    -fx-border-color: #30363d;
+    -fx-border-radius: 12;
+    -fx-border-width: 1;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.7), 14, 0, 0, 6);
+}
+
+.video-pane ImageView {
+    -fx-effect: dropshadow(gaussian, rgba(88, 166, 255, 0.45), 24, 0, 0, 0);
+}
+
+.empty-hint {
+    -fx-text-fill: #6e7681;
+    -fx-font-size: 16px;
+    -fx-font-style: italic;
+}
+
+
+.panel {
+    -fx-background-color: #161b22;
+    -fx-background-radius: 12;
+    -fx-border-color: #30363d;
+    -fx-border-radius: 12;
+    -fx-border-width: 1;
+    -fx-padding: 14;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.4), 10, 0, 0, 3);
+}
+
+.section-title {
+    -fx-text-fill: #58a6ff;
+    -fx-font-size: 12px;
+    -fx-font-weight: 700;
+    -fx-letter-spacing: 1px;
+}
+
+.controls-panel {
+    -fx-background-color: linear-gradient(to bottom, #1a2028 0%, #161b22 100%);
+    -fx-background-radius: 14;
+    -fx-border-color: #30363d;
+    -fx-border-radius: 14;
+    -fx-border-width: 1;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.6), 14, 0, 0, 4);
+}
+
+.control-separator {
+    -fx-background-color: #30363d;
+    -fx-background-radius: 1;
+}
+
+
+.icon-button {
+    -fx-background-color: linear-gradient(to bottom, #21262d 0%, #161b22 100%);
+    -fx-text-fill: #c9d1d9;
+    -fx-background-radius: 8;
+    -fx-border-color: #30363d;
+    -fx-border-radius: 8;
+    -fx-border-width: 1;
+    -fx-padding: 8 14 8 14;
+    -fx-font-size: 13px;
+    -fx-font-weight: 600;
+    -fx-cursor: hand;
+    -fx-graphic-text-gap: 8;
+    -fx-min-width: 72;
+}
+
+.icon-button:hover {
+    -fx-background-color: linear-gradient(to bottom, #30363d 0%, #21262d 100%);
+    -fx-border-color: #58a6ff;
+    -fx-text-fill: #ffffff;
+    -fx-effect: dropshadow(gaussian, rgba(88, 166, 255, 0.55), 12, 0, 0, 0);
+}
+
+.icon-button:pressed {
+    -fx-background-color: #0d1117;
+}
+
+
+.icon-button.big {
+    -fx-padding: 10 22 10 22;
+    -fx-font-size: 14px;
+    -fx-min-width: 105;
+}
+
+
+.icon-button.primary {
+    -fx-background-color: linear-gradient(to bottom, #238636 0%, #196c2e 100%);
+    -fx-border-color: #2ea043;
+    -fx-text-fill: #ffffff;
+}
+
+.icon-button.primary:hover {
+    -fx-background-color: linear-gradient(to bottom, #2ea043 0%, #238636 100%);
+    -fx-effect: dropshadow(gaussian, rgba(46, 160, 67, 0.85), 18, 0, 0, 0);
+}
+
+
+.icon-button.danger {
+    -fx-background-color: linear-gradient(to bottom, #8b2c2c 0%, #6b1f1f 100%);
+    -fx-border-color: #c94040;
+    -fx-text-fill: #ffffff;
+}
+
+.icon-button.danger:hover {
+    -fx-background-color: linear-gradient(to bottom, #c94040 0%, #8b2c2c 100%);
+    -fx-effect: dropshadow(gaussian, rgba(201, 64, 64, 0.85), 18, 0, 0, 0);
+}
+
+
+.icon-button.success {
+    -fx-background-color: linear-gradient(to bottom, #1f6feb 0%, #1158c7 100%);
+    -fx-border-color: #58a6ff;
+    -fx-text-fill: #ffffff;
+}
+
+.icon-button.success:hover {
+    -fx-background-color: linear-gradient(to bottom, #58a6ff 0%, #1f6feb 100%);
+    -fx-effect: dropshadow(gaussian, rgba(88, 166, 255, 0.9), 18, 0, 0, 0);
+}
+
+
+.playlist-view {
+    -fx-background-color: #0d1117;
+    -fx-control-inner-background: #0d1117;
+    -fx-background-radius: 8;
+    -fx-border-color: transparent;
+}
+
+.playlist-view .list-cell {
+    -fx-text-fill: #c9d1d9;
+    -fx-background-color: transparent;
+    -fx-padding: 9 12 9 12;
+    -fx-border-color: transparent transparent #21262d transparent;
+    -fx-border-width: 0 0 1 0;
+}
+
+.playlist-view .list-cell:filled:hover {
+    -fx-background-color: #161b22;
+    -fx-text-fill: #58a6ff;
+}
+
+.playlist-view .list-cell:filled:selected {
+    -fx-background-color: linear-gradient(to right, #1f6feb 0%, #1158c7 100%);
+    -fx-text-fill: #ffffff;
+    -fx-font-weight: 700;
+}
+
+
+.slider {
+    -fx-cursor: hand;
+}
+
+.slider .track {
+    -fx-background-color: #30363d;
+    -fx-background-radius: 3;
+    -fx-pref-height: 5;
+}
+
+.slider .thumb {
+    -fx-background-color: linear-gradient(to bottom, #58a6ff 0%, #1f6feb 100%);
+    -fx-background-radius: 50%;
+    -fx-pref-width: 14;
+    -fx-pref-height: 14;
+    -fx-effect: dropshadow(gaussian, rgba(88, 166, 255, 0.65), 8, 0, 0, 0);
+}
+
+.slider .thumb:hover {
+    -fx-background-color: linear-gradient(to bottom, #79c0ff 0%, #388bfd 100%);
+    -fx-effect: dropshadow(gaussian, rgba(121, 192, 255, 0.95), 14, 0, 0, 0);
+}
+
+.slider .fill {
+    -fx-background-color: linear-gradient(to right, #1f6feb 0%, #58a6ff 100%);
+    -fx-background-radius: 3;
+}
+
+
+.time-label {
+    -fx-text-fill: #ffffff;
+    -fx-font-family: "Consolas", monospace;
+    -fx-font-size: 14px;
+    -fx-font-weight: 700;
+    -fx-padding: 0 0 0 8;
+}
+
+.volume-icon {
+    -fx-text-fill: #58a6ff;
+    -fx-font-size: 16px;
+    -fx-padding: 0 4 0 0;
+}
+
+
+.scroll-bar {
+    -fx-background-color: transparent;
+}
+
+.scroll-bar .track {
+    -fx-background-color: transparent;
+}
+
+.scroll-bar .thumb {
+    -fx-background-color: #30363d;
+    -fx-background-radius: 5;
+}
+
+.scroll-bar .thumb:hover {
+    -fx-background-color: #58a6ff;
+}
+
+.scroll-bar .increment-button,
+.scroll-bar .decrement-button {
+    -fx-background-color: transparent;
+    -fx-padding: 0;
+}
+
+.scroll-bar .increment-arrow,
+.scroll-bar .decrement-arrow {
+    -fx-background-color: transparent;
+}
